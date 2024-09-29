@@ -1,55 +1,132 @@
-# Repository for JS study
 
+# Repository for JS Study
 
 ## Requirements
-- npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-- node.js : https://nodejs.org/en/download/package-manager
-- Vitejs : https://vitejs.dev/guide/#manual-installation
+- **npm**: [Download and Install npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- **Node.js**: [Install Node.js](https://nodejs.org/en/download/package-manager)
+- **Vitejs**: [Vite.js Installation Guide](https://vitejs.dev/guide/#manual-installation)
 
-## Start
+## Start the Project
 
-- ``` npm install ```
-- ``` npm run dev ```
-- http://localhost:5173/
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+   
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
+3. Open the app in your browser:
+   ```
+   http://localhost:5173/
+   ```
 
-## Import modules
-Import functions soma, sub in ./lib/match
+## Importing Modules
+To import the functions `soma` and `sub` from the file `./lib/math`, use the following code:
 
-``` 
-//Import modules im JS
-import { soma, sub} from  './lib/math'
-console.log(soma(1,2))
-console.log(sub(2,1))
-
-``` 
-
-## Object
-Syntax for creating objects
+```js
+// Import modules in JS
+import { soma, sub } from './lib/math';
+console.log(soma(1, 2));
+console.log(sub(2, 1));
 ```
+
+## Classes in JavaScript
+There are two ways to create objects in JavaScript.
+
+### 1. Creating an Object Directly
+```js
 const user = {
-    name:'Diego',
-    idade: 27,
-    address: {
-        street: 'Rua stret',
-        number: 176,
+    name: 'Diego',
+    age: 27,
+};
+```
+This method is useful for simple cases where you need a quick data structure. However, when code reuse is important, using a constructor class is more beneficial.
+
+### 2. Constructor Class
+```js
+class Users { 
+    // Constructor is called when a new instance of the class is created
+    constructor(name, age, address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    // Methods
+    describeObject() {
+        document.body.innerHTML = JSON.stringify(this);
+    }
+
+    describeKeys() {
+        document.body.innerHTML = Object.keys(this);
+    }
+
+    describeValues() {
+        document.body.innerHTML = Object.values(this);
+    }
+
+    // Return an array of keys and values
+    describeVectors() {
+        document.body.innerHTML = JSON.stringify(Object.entries(this));
     }
 }
 ```
-### Return keys for objetct 
-```
-document.body.innerText= Object.keys(user)
+This approach allows for better code reuse and object instantiation.
+
+### Object Instantiation
+```js
+const LucasMaciel7 = new Users('Lucas', 15, 'street');
 ```
 
-### Return values for object
+### Calling Methods
+To call the methods on the object, use the following syntax:
 
-```
-document.body.innerText= Object.values(user)
+```js
+LucasMaciel7.describeObject();
 ```
 
-### Returns vectors
+This method returns the object in JSON format.
+
+#### Console Output
+```json
+{
+    "address": "street",
+    "age": 15,
+    "name": "Lucas"
+}
 ```
-Document.body.innerText= JSON.stringify(Object.entries(user))
+
+### Returning Keys from the Object
+You can use the method `describeKeys` to return the keys of the object.
+
+- **Method**:
+```js
+describeKeys() {
+    document.body.innerHTML = Object.keys(this);
+}
+```
+
+#### Output:
+```bash
+name, age, address
+```
+
+### Returning Values from the Object
+You can use the method `describeValues` to return the values of the object.
+
+- **Method**:
+```js
+describeValues() {
+    document.body.innerHTML = Object.values(this);
+}
+```
+
+#### Output:
+```bash
+Lucas, 15, Doutor Aloísio Procopio
 ```
 
 ### Destrutuction for Json
@@ -94,7 +171,6 @@ const age = 27;
 const user = {
     name,
     age
-
 }
 ```
 
