@@ -1,14 +1,59 @@
-// Import modules im JS
-// import { soma, sub} from  './lib/math'
+import { soma, sub} from  './lib/math'
 // console.log(soma(1,2))
 // console.log(sub(2,1))
 
 
+class Users { 
+    // Contructor this called white create new instances for class
+    constructor(name, age, addres) {
+        this.name = name;
+        this.age = age;
+        this.addres = addres;
+    }
+
+    // Methods
+    discribeObject(){
+        document.body.innerHTML = JSON.stringify(this)
+    }
+
+    discribeKeys(){
+        document.body.innerHTML = Object.keys(this)
+    }
+
+    discribeValues(){
+        document.body.innerHTML = Object.values(this)
+    }
+
+    // Return array a keys and values
+    discribeVectors(){
+        document.body.innerHTML = JSON.stringify(Object.entries(this))
+    }
+
+    
+}
+
+
+const LucasMaciel7 = new Users('lucas', 15, 'Doutor aloisio procopio');
+const LucasMaciel = new Users('LucasM', 15, {stret: "rua1", city: "ppg"})
+
+
+// LucasMaciel7.discribeValues();
 
 
 
 
-// Object
+
+
+
+
+
+
+
+
+
+
+
+//Object
 // const user = {
 //     name:'Diego',
 //     idade: 27,
@@ -18,8 +63,8 @@
 //     }
 // }
 
-//// Return keys for objetct
-//document.body.innerText= Object.keys(user)
+// Return keys for objetct
+// document.body.innerText= Object.keys(user)
 
 /////Return values for object
 //document.body.innerText= Object.values(user)
@@ -92,37 +137,69 @@
 
 //// map, filter, every, some, find, find index, reduc
 
-// const array = [1,2,3,4,5,];
+// const array1 = [1,2,3,4,5,8];
+// for (let i of array1){
+//     console.log(i)
+// }
+// const array2 = ['a','b','c']
+// const array3 = array1.concat(array2) 
 
-// for (const i of array){
-//     document.body.innerText +=i
+// // Expected Output  [1,2,3,4,5,8,'a','b','c']
+
+// const user = { 
+//     name: "Lucas",
+//     age: 19
 // }
 
+// for (let key in user){ 
+//     console.log(key); // Expected output object keys 
+// }
 
-// array.forEach( item => {
-//     document.body.innerText +=item;
-// })
+// for (let key in user){ 
+//     console.log(user[key]); // Expected output values the object
+// }
 
+// const items = [1,2,3,4,5,7]
+// const copyitems = []
 
-////// Metodo .map  Retorna um novo array através de outro
+// //before
+// for (let i = 0; i < items.length; i++){
+//     copyitems.push(items[i])
+// }
+
+// // after
+// items.forEach((item) => {
+//     copyitems.push(item);
+// });
+// console.log(copyitems) //// Expected output copyitems 1,2,3,4,5,7
+
+//// Metodo .map  Retorna um novo array através de outro
+// const array = [1,2,3,4,5]
+
 // const NovoArray = array.map(item => {
 //     if (item % 2 == 0){
-//         return item * 10;
 //     }
-//     return item;
 // })
 
+// console.log(NovoArray)
 
-///////Filter (Filtra condição dentro do array)
 
-// const novoArray = array
-//     .filter(item => item % 2 === 0)
-//     .map(item => item * 10)
+/////Filter (Filtra condição dentro do array)
+// const array = [1,2,3,4,5]
+// const novoArray = array.filter( (element) => {
+//     return element < 2;
+// })
+
+// console.log(novoArray)
 
 
 /////// Every (Retorna true ou false de acordo com a condição)
-// const TodosItensSaoNumeros = array.every(item => typeof item  == 'number');
+// const array = [1,2,3,4] 
+// const allItensIsNumber = array.every((Element) => {
+//     return typeof Element === 'number'
+//  })
 
+//  console.log(allItensIsNumber) // Expected output True
 
 //// Some (Verifica se UM item satisfaz a condição)
 
@@ -136,9 +213,10 @@
 // document.body.innerText = JSON.stringify(par)
 
 
-//////  Findindex (Retorna index encontrado)
-// const par = array.findIndex(item => item % 2 == 0)
-// document.body.innerText = JSON.stringify(par)
+////  Findindex (Retorna index encontrado)
+const array = [1,2,3,4,5]
+const par = array.findIndex(item => item % 2 == 0)
+document.body.innerText = JSON.stringify(par) // Expected output first index satisfasing 1 = value 2 
 
 
 
