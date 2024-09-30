@@ -300,60 +300,64 @@ You can use `forEach` to iterate over the elements of an array, passing the curr
 - `(item) => {}` is an arrow function used in the `forEach` method.
 
 
-### .Map ( Create new array from another) 
+### .Map 
+This method we can create new array from another, just like `ForEach` passing as a parameter to the function interation method.
+returns a new array based on the return value of the function provided as a parameter.
 
-```
+```js
+const array = [1,2,3,4,5]
 const NovoArray = array.map(item => {
     if (item % 2 == 0){
-        return item * 10;
+        console.log(item) // Expected output [2,4] 
     }
-    return item;
 })
 
 ```
 
 ### Filter ( Filters a condition within the array )
-
-```
-// Create new array with even numbers
-const newArray = array
-    .filter(item => item % 2 === 0)
-    .map(item => item * 10)
-
-```
-
-
-### Every (Return boulean value)
-```
-const TodosItensSaoNumeros = array.every(item => typeof item  == 'number');
-```
-
-### Some ( Validates if `ONE` item satisfies the condition ) 
-
-```
-const UmItemNaoEumNumero = array.some(item => {
-     return typeof item != 'number'
+This method allows us to filter each element by returning true or false for each element. Only the elements that return true will be included in the new array.
+```js 
+const array = [1,2,3,4,5]
+const novoArray = array.filter( (element) => {
+    return element < 2;
 })
 
+console.log(novoArray) // Expected Output [1]
+
+
 ```
 
-### Find  ( Find the `first` item that satisfies the condition) 
 
+### Every 
+This method allows us to filter the entire array by returning true or false based on the condition.
+
+```js
+const array = [1,2,3,4] 
+const allItensIsNumber = array.every((Element) => {
+    return typeof Element === 'number'
+ })
+
+ console.log(allItensIsNumber) // Expected output True
 ```
+
+### Find  ( Find the `first` item that satisfies given condition) 
+
+```js
 const par = array.find(item => item % 2 == 0);
 document.body.innerText = JSON.stringify(par)
 ```
 
-### Find Inder (Return index item)
-
+### Find Inder
+This method return first index number the satisfie given condition 
 ```
+const array = [1,2,3,4,5]
 const par = array.findIndex(item => item % 2 == 0)
-document.body.innerText = JSON.stringify(par)
+document.body.innerText = JSON.stringify(par) // Expected output: 1 (the index of the first even number, 2) 
 ```
 
 ### Reduce (Create a new data structure based on the array ) 
 
-´´´
+´´´js
 const soma = array.reduce((acc, item) => {
      return acc + item
 }, 0)
@@ -362,7 +366,7 @@ document.body.innerText = JSON.stringify(soma)
 
 ## Template Literals (How to concatenate strings) 
 
-```
+```js
 const name = null;
 const message = `Bem-vindo, ${name ? name:'visitante'}`;
 document.body.innerText= message
@@ -385,7 +389,7 @@ States:
 
 ### Example : 
 
-```
+```js
 // Every async function returns a Promise
 
 async function searchData() {
