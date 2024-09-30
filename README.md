@@ -131,7 +131,7 @@ Lucas, 15, Doutor Aloísio Procopio
 
 ### Destrutuction for Json
 If there is no nickname, it creates a key with the value 'Fernando'
-```
+```js
 function  mostraidade({ idade, nickname = 'fernando' }){
     return idade, nickname;
 }
@@ -143,7 +143,7 @@ function  mostraidade({ idade, nickname = 'fernando' }){
 Returns rest of Json information
 
 ### Example for object 
-```
+```js
 const { name, ...rest } = user
 ```
 
@@ -163,7 +163,7 @@ const [first, , third, ...rest] = arrays;
 ## Short Sintax
 Variable inside object = key + value
 
-```
+```js
 const name ='Diego';
 const age = 27;
 
@@ -176,7 +176,7 @@ const user = {
 
 ## Optional Chaning
 Object:
-```
+```js
 const user = {
     name:'Diego',
     idade: 27,
@@ -196,7 +196,7 @@ const user = {
 
 Operator " ? " = If
 
-```
+```js
 // If there is an address inside user, call the function if it exists inside address
  document.body.innerText = user.address?.Showfulladress?.()
 ```
@@ -204,13 +204,32 @@ Operator " ? " = If
 ### Example: 
 Print state if exists key 
 
-```
+```js
 const key = 'state';
 document.body.innerText = user.address?.[key]
 ```
 
 
-## Array methods
+## Array 
+
+It's simple array in  JavaScript
+```js
+const array = [1,2,3,4,5];
+```
+We can check array lenght for
+
+```js
+console.log(array.lenght) // Output 5
+```
+to concatenate there array, we use this mehtod `concat()`<br>
+#### Example
+```js
+const array1 = [1,2,3,4,5,8];
+const array2 = ['a','b','c']
+const array3 = array1.concat(array2) 
+console.log(array3)
+// Expected Output  [1,2,3,4,5,8,'a','b','c']
+```
 ### Methods: 
 - Map
 - Filter
@@ -221,27 +240,82 @@ document.body.innerText = user.address?.[key]
 - Reduce
 
 ### Array
-```
-const array = [1,2,3,4,5];
-```
 
-### Simple For
+
+
+
+### Simple `For`
 It can be used to iterate over anything, including `arrays, objects, strings`
-```
-for (const i of array){
-  document.body.innerText +=i
+
+#### Sintax
+it is method interate of elements within `array` 
+
+- `for... of` interates  over the elements of the `array`
+```js
+array = [1,2,3,4,5]
+for (const i of array){ 
+     console.log(i) // Expected output 1, 2, 3, 4, 5
 }
 ```
-Can be interrupted with `Break` 
+
+- `for... in` interates over keys the `object` or array index 
+
+Example array 
+```js
+array = [1,2,3,4,5]
+for (const i in array){
+   console.log(i) // Expected output 0,1,2,3,4(Returns array index)
+}
+```
+
+Example object
+
+```js
+const user = { 
+    name: "Lucas",
+    age: 19
+}
+
+for (let key in user){
+   console.log(key) // Expected output 
+} 
+```
+or 
+
+```js
+for (let key in user){ 
+    console.log(user[key]); // Expected output values the object
+}
+```
 
 ### For each
-is used exclusively for iterating over arrays.
-```
- array.forEach( item => {
-     document.body.innerText +=item;
-})
+is used exclusively for iterating over elementes array.
 
+```js
+const array = [1,2,3,4,5,7]
+array.forEach((element) => console.log(element)) // Expected Output 1,2,3,4,5,7
 ```
+- Second example
+```js
+const items = [1, 2, 3, 4, 5, 7];
+const copyitems = [];
+
+// Before
+for (let i = 0; i < items.length; i++) {
+    copyitems.push(items[i]);
+}
+
+// After
+items.forEach((item) => {
+    copyitems.push(item);
+});
+console.log(copyitems); // Expected output: [1, 2, 3, 4, 5, 7]
+```
+You can use `ForEach` to iterate over the elements of an array, passing the parameters to this `function` for each element in the iteration.
+- `(item) => {}` is an arrow function used in the `ForEach` method
+ 
+
+
 `Cannot be interrupted`
 
 
