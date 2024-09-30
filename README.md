@@ -234,6 +234,7 @@ console.log(array3); // Output: [1, 2, 3, 4, 5, 8, 'a', 'b', 'c']
 - `findIndex()`
 - `reduce()`
 
+
 ### 🔁 **Simple `for`**
 It can be used to iterate over anything, including arrays, objects, and strings.
 
@@ -296,122 +297,102 @@ items.forEach((item) => {
 });
 console.log(copyItems); // Output: [1, 2, 3, 4, 5, 7]
 ```
-You can use `forEach` to iterate over the elements of an array, passing the current element as a parameter to the function in each iteration.
-- `(item) => {}` is an arrow function used in the `forEach` method.
 
-
-### .Map 
-This method we can create new array from another, just like `ForEach` passing as a parameter to the function interation method.
-returns a new array based on the return value of the function provided as a parameter.
+### 🌟 **.map**
+This method allows us to create a new array from another, just like `forEach`, by passing a function as a parameter. The difference is that `.map()` returns a new array based on the return value of the function provided.
 
 ```js
-const array = [1,2,3,4,5]
-const NovoArray = array.map(item => {
-    if (item % 2 == 0){
-        console.log(item) // Expected output [2,4] 
+const array = [1, 2, 3, 4, 5];
+const newArray = array.map(item => {
+    if (item % 2 === 0) {
+        console.log(item); // Expected output: [2, 4]
     }
-})
-
+});
 ```
 
-### Filter ( Filters a condition within the array )
-This method allows us to filter each element by returning true or false for each element. Only the elements that return true will be included in the new array.
-```js 
-const array = [1,2,3,4,5]
-const novoArray = array.filter( (element) => {
-    return element < 2;
-})
-
-console.log(novoArray) // Expected Output [1]
-
-
-```
-
-
-### Every 
-This method allows us to filter the entire array by returning true or false based on the condition.
+### 🔍 **.filter**
+This method allows us to filter each element by returning `true` or `false` for each element. Only the elements that return `true` will be included in the new array.
 
 ```js
-const array = [1,2,3,4] 
-const allItensIsNumber = array.every((Element) => {
-    return typeof Element === 'number'
- })
-
- console.log(allItensIsNumber) // Expected output True
+const array = [1, 2, 3, 4, 5];
+const filteredArray = array.filter(element => element < 3);
+console.log(filteredArray); // Expected Output: [1, 2]
 ```
 
-### Find  ( Find the `first` item that satisfies given condition) 
+### 🔄 **.every**
+This method checks if **all** elements in the array satisfy a condition and returns `true` or `false`.
 
 ```js
-const par = array.find(item => item % 2 == 0);
-document.body.innerText = JSON.stringify(par)
+const array = [1, 2, 3, 4];
+const allItemsAreNumbers = array.every(element => typeof element === 'number');
+console.log(allItemsAreNumbers); // Expected output: true
 ```
 
-### Find Inder
-This method return first index number the satisfie given condition 
+### 🔍 **.find**
+This method finds the **first** item that satisfies a given condition and returns it.
+
+```js
+const array = [1, 2, 3, 4, 5];
+const firstEven = array.find(item => item % 2 === 0);
+console.log(firstEven); // Expected output: 2
 ```
-const array = [1,2,3,4,5]
-const par = array.findIndex(item => item % 2 == 0)
-document.body.innerText = JSON.stringify(par) // Expected output: 1 (the index of the first even number, 2) 
+
+### 🔎 **.findIndex**
+This method returns the **index** of the first item that satisfies a given condition.
+
+```js
+const array = [1, 2, 3, 4, 5];
+const firstEvenIndex = array.findIndex(item => item % 2 === 0);
+console.log(firstEvenIndex); // Expected output: 1
 ```
 
-### Reduce (Create a new data structure based on the array ) 
+### ➕ **.reduce**
+This method reduces an array to a single value by applying a function to each element.
 
-´´´js
-const soma = array.reduce((acc, item) => {
-     return acc + item
-}, 0)
-document.body.innerText = JSON.stringify(soma)
-´´´
+```js
+const array = [1, 2, 3, 4, 5];
+const sum = array.reduce((acc, item) => acc + item, 0);
+console.log(sum); // Expected output: 15
+```
 
-## Template Literals (How to concatenate strings) 
+## 📝 **Template Literals (String Interpolation)**
+Template literals allow for easier string concatenation.
 
 ```js
 const name = null;
-const message = `Bem-vindo, ${name ? name:'visitante'}`;
-document.body.innerText= message
+const message = `Welcome, ${name ? name : 'Guest'}`;
+console.log(message); // Output: Welcome, Guest
 ```
 
+## 📜 **Promises**
+A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation.
 
-## Promisses
+### States of a Promise:
+- **Pending**: Initial state, neither fulfilled nor rejected.
+- **Fulfilled**: Operation completed successfully.
+- **Rejected**: Operation failed.
 
-An object that represents the eventual completion or failure of an asynchronous operation
+### Promise Methods:
+- `.then()`: Used to handle the successful resolution of a promise.
+- `.catch()`: Used to handle promise rejections.
 
-States: 
-
-- Pending
-- Fulfilled
-- Rejected 
-
-### Chaning 
-`.then()`: Used to handle the successful resolution of a Promise.
-`.catch()`: Used to handle failures in a Promise.
-
-### Example : 
-
+### Example:
 ```js
-// Every async function returns a Promise
-
-async function searchData() {
+async function fetchData() {
     try {
         const response = await fetch('https://api.github.com/users/LucasMaciel7');
-        const body = await response.json();
-        return body.name;
-    } catch (err) {
-        // Error handling if the promise is rejected
-        console.log(err);
+        const data = await response.json();
+        console.log(data.name);
+    } catch (error) {
+        console.log('Error:', error);
     } finally {
-        // Runs regardless of the promise outcome
-        console.log('Operation complete');
+        console.log('Request completed');
     }
 }
 
-// .then (If the promise resolves successfully)
-searchData().then(name => {
-    console.log(name);
-});
-
+fetchData();
 ```
+
 
 
 
